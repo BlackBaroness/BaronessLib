@@ -4,21 +4,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
- * @author Black_Baroness
- * https://github.com/SiriusWhite74/BaronessLib
- * https://vk.com/black_baroness
+ * Main class.
+ *
+ * @author Black_Baroness  https://github.com/SiriusWhite74/BaronessLib https://vk.com/black_baroness
  */
-
 public class Baroness extends JavaPlugin {
 
     /**
-     * кикает игрока с сервера по указанной причине (мультистрочность)
+     * Kicks player with multiple rows as reason.
      *
-     * @param p      игрок
-     * @param reason причина
+     * @param player the player
+     * @param reason the reason
      */
-
-    public static void kickPlayer(Player p, String... reason) {
+    public static void kickPlayer(Player player, String... reason) {
         StringBuilder bye = new StringBuilder();
         for (String str : reason) {
             if (bye.toString().equals("")) {
@@ -27,21 +25,20 @@ public class Baroness extends JavaPlugin {
             }
             bye.append("\n").append(str);
         }
-        p.kickPlayer(bye.toString());
+        player.kickPlayer(bye.toString());
     }
 
 
     /**
-     * проверяет, совпадает ли IP игрока с указанным
+     * Checks whether the player's IP matches the specified one.
      *
-     * @param p  игрок
-     * @param ip IP, с которым идёт сравнение
-     * @return совпадает ли IP
+     * @param player the player
+     * @param ip     the ip
+     * @return does it match
      */
-
-    public static boolean checkIP(Player p, String ip) {
+    public static boolean checkIP(Player player, String ip) {
         ip = "/" + ip;
-        return p.getAddress().getAddress().toString().equals(ip);
+        return player.getAddress().getAddress().toString().equals(ip);
     }
 }
 
