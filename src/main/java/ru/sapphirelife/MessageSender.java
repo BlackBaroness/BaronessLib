@@ -18,7 +18,7 @@ public class MessageSender {
      */
     public MessageSender() {
         prefix = null;
-        color = null;
+        color = ChatColor.WHITE;
     }
 
     /**
@@ -31,11 +31,7 @@ public class MessageSender {
         StringBuilder builder = new StringBuilder();
 
         if (prefix != null) builder.append(prefix).append(" ");
-        if (color != null) {
-            builder.append(color);
-        } else {
-            builder.append(ChatColor.WHITE);
-        }
+        builder.append(color);
         builder.append(message);
 
         player.sendMessage(builder.toString());
