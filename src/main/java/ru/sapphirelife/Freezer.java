@@ -67,7 +67,7 @@ class FreezePlayer implements Listener {
         this.player = player;
     }
 
-    @EventHandler(ignoreCancelled = true)
+    @EventHandler
     private void onPlayerMove(PlayerMoveEvent event) {
         if (event.getPlayer().equals(player)) event.setCancelled(true);
     }
