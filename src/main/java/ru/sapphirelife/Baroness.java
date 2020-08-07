@@ -19,8 +19,8 @@ import java.util.List;
  * Main class.
  *
  * @author Black_Baroness
- * https://github.com/SiriusWhite74/BaronessLib
- * https://vk.com/black_baroness
+ * @author github.com /SiriusWhite74/BaronessLib
+ * @author vk.com /black_baroness
  */
 public class Baroness extends JavaPlugin {
 
@@ -76,6 +76,12 @@ public class Baroness extends JavaPlugin {
         return false;
     }
 
+    /**
+     * Downloads file from RAW url to specified path.
+     *
+     * @param path the path
+     * @param url  the url
+     */
     public static void downloadFile(String path, String url) {
         try {
             InputStream in = new URL(url).openStream();
@@ -85,6 +91,14 @@ public class Baroness extends JavaPlugin {
         }
     }
 
+    /**
+     * Fill inventory with ItemStacks from a list.
+     * If you want to break slot empty, just add null
+     *
+     * @param inventory the inventory
+     * @param items     the list of ItemStacks
+     * @return the filled inventory
+     */
     public static Inventory fillInventory(Inventory inventory, List<ItemStack> items) {
         for (int i = 0; i <= inventory.getSize(); i++) {
             ItemStack item = items.get(i);
@@ -94,6 +108,13 @@ public class Baroness extends JavaPlugin {
         return inventory;
     }
 
+    /**
+     * Returns how many items the player has (Material)
+     *
+     * @param player   the player
+     * @param material the material
+     * @return amount of specified items
+     */
     public static int howManyItems(Player player, Material material) {
         int i = 0;
         for (ItemStack item : player.getInventory().getContents()) {
@@ -103,6 +124,13 @@ public class Baroness extends JavaPlugin {
         return i;
     }
 
+    /**
+     * Returns how many items the player has (ItemStack)
+     *
+     * @param player    the player
+     * @param itemStack the ItemStack
+     * @return amount of specified items
+     */
     public static int howManyItems(Player player, ItemStack itemStack) {
         int i = 0;
         for (ItemStack item : player.getInventory().getContents()) {
@@ -112,6 +140,13 @@ public class Baroness extends JavaPlugin {
         return i;
     }
 
+    /**
+     * Takes the specified number of items from the player (Material)
+     *
+     * @param player   the player
+     * @param material the material
+     * @param amount   the amount
+     */
     public static void removeItems(Player player, Material material, int amount) {
         for (int m = 0; m < player.getInventory().getContents().length; m++) {
             ItemStack item = player.getInventory().getItem(m);
@@ -131,6 +166,13 @@ public class Baroness extends JavaPlugin {
         }
     }
 
+    /**
+     * Takes the specified number of items from the player (ItemStack)
+     *
+     * @param player    the player
+     * @param itemStack the ItemStack
+     * @param amount    the amount
+     */
     public static void removeItems(Player player, ItemStack itemStack, int amount) {
         for (int m = 0; m < player.getInventory().getContents().length; m++) {
             ItemStack item = player.getInventory().getItem(m);
